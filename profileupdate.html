@@ -73,7 +73,7 @@
         
             <div class="inputblock">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email">
+                <input type="email" id="email" name="email" readonly>
             </div>
         </div>
         
@@ -135,12 +135,12 @@
         <div class="formflex">
             <div class="inputblock">
             <label for="address">Address</label>
-        <textarea name="" id="" cols="30" rows="10"></textarea>
+        <textarea name="" id="address" cols="30" rows="10"></textarea>
         </div>
         </div>
         
 <div class="formflex">
-    <button>Proceed</button>
+    <button onclick="submitform()">Proceed</button>
 </div>
        <a href="profile.html">what next page should look like ?</a>
     </div>
@@ -154,44 +154,158 @@
 
 <!-- investments list is here -->
 
-    <div class="overlay" id="myoverlay">
-        <div class="allinvestmentsblock">
-    
+
+    <script>
+let Ppofile = [
+
+]
+const activeid = localStorage.getItem('activeuserid')
+
+let myprofilearray=''
+
+myprofilearray =  localStorage.getItem('profiles');
+     
+     if (myprofilearray) {
+        Ppofile = JSON.parse(myprofilearray);
+     } 
+
+
+
+        let myuserarray=''
+             let users = [
+     
+     ]
+     
+     
+      myuserarray =  localStorage.getItem('User details');
+     
+     if (myuserarray) {
+         users = JSON.parse(myuserarray);
+     } 
+     
+
+function autofill(){
+ 
+        console.log(activeid)
+
+        
        
-                <div class="addnew_investment">
-                      <div class="addinvestment_headtext">
-                    <span>Available Investments (9)</span>   
-                    <b class="btn-modal-close"  onclick="showinvestmentslists()">x</b>
-                    </div>
-                    <div class="investmentwrappe" id="myinvestmenttypes">
+        const found = users.find(detail => detail.id == activeid );
+
+        if (found) {
+            document.getElementById('email').value =  found.mail
+            console.log(found)
+        }
+       
+     
+}autofill()
+
+
+     function submitform()
+     {
+
+        const found = users.find(detail => detail.id == activeid );
+
+if (found) {
+    document.getElementById('email').value =  found.mail
+    console.log(found)
+}
+
+        let userid = found.id
+   const firstname = document.getElementById('first_name').value;
+   const lastname = document.getElementById('last_name').value;
+   const mname = document.getElementById('middle_name').value;
+   const pnum = document.getElementById('phone_number').value;
+   const name_kin = document.getElementById('next_of_kin_name').value; 
+   const phone_kin = document.getElementById('next_of_kin_phone').value; 
+   const country = document.getElementById('country').value; 
+   const city = document.getElementById('city').value; 
+   const state = document.getElementById('state').value; 
+   const gender = document.getElementById('gender').value; 
+   const address = document.getElementById('address').value; 
+   let status = 'true';
     
-            <!-- simple html for ivestment types -->
-                        <div class="addinvestment_body">
-                            <div class="addinvestment_gold">
-                               Stocks
-                            </div>
-                          <div class="bodyofwork">
-                        A bond is an investment where you lend money to a company, government, and other types of organization. In return, the bond issuer pays you interest for the borrowed money, and, at the same time, repay you the original amount you paid for the bond (principal).
-            
-                            <div class="addinvest_btn">
-                          <a href="startinvestment.html">
-                            <button>Invest</button> 
-                          </a>
-                         
-            
-                            </div>
-                          </div>
-            
-                        </div>
-            
+
+  const userprofile = {
+    userid : userid, //the one on the rhs is the variable name
+    firstname : firstname,
+    lastname : lastname,
+    middlename : mname,
+    phone_number : pnum,
+    Name_of_kin : name_kin,
+    Pnumber_of_kin : phone_kin,
+    Country : country,
+    City : city,
+    State : state,
+    Gender : gender,
+    Address : address,
+    Profile_updated : status
+  }
+
+  Ppofile.push(userprofile)
+
+prfilestringify = JSON.stringify(Ppofile);
+  localStorage.setItem('profiles', prfilestringify);
+  if (firstname && lastname && mname && pnum && name_kin && phone_kin && country && city && state && gender && address) {
+    alert('Filled fields stored')
+    window.location.href = ''
+  } else {
     
-                    </div>
-    
-                </div>
-    
-          
-        </div>
+  }
+ showpopup()
+     }
+
+     
+         </script>
+         <script>
+            function showinvestmentslists() {
+    const investmentlistmodal = document.getElementById('myoverlay')
+
+    investmentlistmodal.classList.toggle('showlist')
+
+}
+
+function showpopup(){
+    let status = 'true'
+    const popup = `
+    <div class="loading-over2" style="display: block;">
+    <div class="popup">
+        <p id="close2"></p>
+        <br>
+    <div class="secoact">
+    <div class="logoac">
+    <img src="img/upd.png" alt="" style="height: 100px; width: 100%; object-fit: contain;">
     </div>
 
+
+    <div class="logomen"> Kindly Update Your Profile </div>
+
+
+    <div class="logobod">
+
+    You have not yet updated your profile. Please take the necessary steps to provide the required information.
+
+    </div>
+    <div class="logobtn">
+
+                <a href="profileupdate.html" type="button"  class="arwbtn"> Proceed </a>
+
+    </div>
+    </div>
+    </div>
+    </div>
+    ` 
+    if (status == 'true'){
+       alert('Profile updated')
+    } else{
+        document.body.innerHTML += popup
+    }
+}showpopup()
+
+
+function custompopup(){
+// coming soon
+}
+         </script>
 </body>
 </html>

@@ -33,7 +33,7 @@
 
 <div class="inputblock">
     <label for="email">Email Address</label>
-    <input type="email" placeholder="Enter Your Email Address" id="emailaddress">
+    <input type="email" placeholder="Enter Your Email Address" id="email">
 </div>      
 
 <div class="inputblock">
@@ -44,12 +44,55 @@
 
 
 
-<button>Log In</button>
+<button onclick="login()">Log In</button>
 
 <div class="endblock">
     Don't have an account yet? <a href="signup.html">Create Account</a>
 </div>
 </div>
     </div>
+
+    <script>
+
+let myuserarray = ''
+
+let users = [
+
+]
+
+
+ myuserarray =  localStorage.getItem('User details');
+
+if (myuserarray) {
+    users = JSON.parse(myuserarray);
+} 
+
+
+
+        function login(){
+
+            const email= document.getElementById('email').value;
+            const Password= document.getElementById('password').value;
+
+
+
+   
+  const found = users.find(detail => detail.mail === email && detail.password === Password  );
+
+
+if (email&&password) {
+    if (found) {
+  alert('user exists')
+  localStorage.setItem('activeuserid', found.id )
+  window.location.href='dashboard.html'
+} else {
+  
+alert('incorrect details')
+}
+} else {
+    alert('Please fill all fields')
+}
+        }
+    </script>
 </body>
 </html>
