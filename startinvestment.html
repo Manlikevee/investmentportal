@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Investment Portal</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+
+
+
+    <header>
+        <div class="container">
+            <div class="loginlinks">
+                <div class="logo">
+                    <a href="index.html"><img src="img/ProduqtEdge Logo.png" alt=""></a>   
+                </div>
+                <div class="links">
+                    <a href="dashboard.html" >Dashboard</a>
+                    <a href="investment.html" class="activelink">Investment</a>
+                    <a href="">Support</a>
+
+                </div>
+
+                <a href="profile.html" class="avatar">
+                    <div class="uname" id="uname">Oluwatosin Ajayi
+                       
+                            <small>User Account</small>
+                        
+                    </div>
+                    <div class="avatarimg">
+                        <img src="img/christopher-campbell-rDEOVtE7vOs-unsplash.jpg" alt=""></div>
+                </a>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="container mydashboard">
+ 
+<br>
+<div class="startinv">
+ 
+<div class="investmentform">
+
+
+    <div class="formheader">Start Investment</div>
+    <div class="formbody">
+
+        <p class="ptitle">
+            Create Investment Account
+        </p>
+
+        <div class="formflex">
+            <div class="inputblock">
+                <label for="">Principal Amount</label>
+                <input type="number" id="">
+            </div>  
+
+            <div class="inputblock">
+                <label for="">Principal Amount</label>
+                <input type="date" id="">
+            </div>  
+
+        </div>
+       
+        
+        <div class="formflex">
+            <div class="inputblock">
+                <label for="">Tenor</label>
+                <input type="number" id="">
+            </div>  
+
+            <div class="inputblock">
+                <label for="">Interest Rate</label>
+                <input type="number" id="" readonly>
+            </div>  
+
+        </div>
+
+               
+        <div class="formflex">
+            <div class="inputblock">
+                <label for="">Maturity Date</label>
+                <input type="date" id="">
+            </div>  
+
+            <div class="inputblock">
+                <label for="">Interest Payable at Maturity</label>
+                <input type="number" id="" readonly>
+            </div>  
+
+        </div>
+
+        <div class="formflex">
+            <div class="inputblock">
+                <label for="">Total Amount Payable at Maturity</label>
+                <input type="number" id="">
+            </div>  
+
+            <div class="inputblock">
+      
+            </div>  
+
+        </div>
+<div class="formflex">
+    <button>Proceed</button>
+</div>
+       <a href="startinvestmentpreview.html">what next page should look like ?</a>
+    </div>
+</div>
+</div>
+
+
+    </div>
+
+
+
+<!-- investments list is here -->
+
+    <div class="overlay" id="myoverlay">
+        <div class="allinvestmentsblock">
+    
+       
+                <div class="addnew_investment">
+                      <div class="addinvestment_headtext">
+                    <span>Available Investments (9)</span>   
+                    <b class="btn-modal-close"  onclick="showinvestmentslists()">x</b>
+                    </div>
+                    <div class="investmentwrappe" id="myinvestmenttypes">
+    
+            <!-- simple html for ivestment types -->
+                        <div class="addinvestment_body">
+                            <div class="addinvestment_gold">
+                               Stocks
+                            </div>
+                          <div class="bodyofwork">
+                        A bond is an investment where you lend money to a company, government, and other types of organization. In return, the bond issuer pays you interest for the borrowed money, and, at the same time, repay you the original amount you paid for the bond (principal).
+            
+                            <div class="addinvest_btn">
+                          <a href="startinvestment.html">
+                            <button>Invest</button> 
+                          </a>
+                         
+            
+                            </div>
+                          </div>
+            
+                        </div>
+            
+    
+                    </div>
+    
+                </div>
+    
+          
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

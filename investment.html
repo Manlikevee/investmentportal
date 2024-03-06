@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Investment Portal</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+
+
+
+    <header>
+        <div class="container">
+            <div class="loginlinks">
+                <div class="logo">
+                    <a href="index.html"><img src="img/ProduqtEdge Logo.png" alt=""></a>   
+                </div>
+                <div class="links">
+                    <a href="dashboard.html" >Dashboard</a>
+                    <a href="investment.html" class="activelink">Investment</a>
+                    <a href="">Support</a>
+
+                </div>
+
+                <a href="profile.html" class="avatar">
+                    <div class="uname" id="uname">Oluwatosin Ajayi
+                       
+                            <small>User Account</small>
+                        
+                    </div>
+                    <div class="avatarimg">
+                        <img src="img/christopher-campbell-rDEOVtE7vOs-unsplash.jpg" alt=""></div>
+                </a>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="container mydashboard">
+        <div class="welcome">
+            Welcome <span id="myuser">Bisola</span>  To Your Dashboard
+        </div>
+        <div class="dashboardtop">
+<div class="investmentboxamt">
+<div class="bxtitle">Total Investment Amount</div>
+<div class="bxvalue"> <div class="currency">₦</div> <div class="totalmoney">100,000,000</div> </div>
+</div>
+<div class="investmentnumber">
+<div class="bxtitle">Total Number of Investment</div>
+<div class="bxvalue">10</div>
+</div>
+
+        </div>
+<br>
+<div class="dsec">
+    <div class="dashboardsearch">
+        <div class="dashboardsearchtext">
+         Recent Activities
+        </div> 
+         <div class="searchinput">
+             <input type="text" placeholder="Search by Transaction Reference number "><button>Search</button>
+         </div>
+         <div class="subtext">This shows the most recent activities across your crystal finance account.</div>
+     </div>
+
+
+     <div class="add"><Button class="addinvbtn" onclick="showinvestmentslists()">Add Investment</Button></div>
+</div>
+       
+
+
+<div class="investmentscards">
+
+<!-- investment card sample -->
+    <div class="investmentcard">
+<div class="accnum">Account Number</div>
+<div class="accnumval">#346577782</div>
+
+<div class="investmentname">
+    Fixed Deposit
+</div>
+
+<div class="invsummary">
+    <div class="invkey">Principal</div>
+    <div class="invval">N 10,000,000.00</div>
+</div>
+<div class="invsummary">
+    <div class="invkey">Start Date</div>
+    <div class="invval">12/04/2023</div>
+</div>
+
+<div class="invsummary">
+    <div class="invkey">Interest Rate</div>
+    <div class="invval">10%</div>
+</div>
+    </div>
+    <div class="investmentcard">
+        <div class="accnum">Account Number</div>
+        <div class="accnumval">#346577782</div>
+        
+        <div class="investmentname">
+            Fixed Deposit
+        </div>
+        
+        <div class="invsummary">
+            <div class="invkey">Principal</div>
+            <div class="invval">N 10,000,000.00</div>
+        </div>
+        <div class="invsummary">
+            <div class="invkey">Start Date</div>
+            <div class="invval">12/04/2023</div>
+        </div>
+        
+        <div class="invsummary">
+            <div class="invkey">Interest Rate</div>
+            <div class="invval">10%</div>
+        </div>
+            </div>
+         
+
+
+</div>
+
+
+
+    </div>
+
+
+
+<!-- investments list is here -->
+
+    <div class="overlay" id="myoverlay">
+        <div class="allinvestmentsblock">
+    
+       
+                <div class="addnew_investment">
+                      <div class="addinvestment_headtext">
+                    <span>Available Investments (9)</span>   
+                    <b class="btn-modal-close"  onclick="showinvestmentslists()">x</b>
+                    </div>
+                    <div class="investmentwrappe" id="myinvestmenttypes">
+    
+            <!-- simple html for ivestment types -->
+                        <div class="addinvestment_body">
+                            <div class="addinvestment_gold">
+                               Stocks
+                            </div>
+                          <div class="bodyofwork">
+                        A bond is an investment where you lend money to a company, government, and other types of organization. In return, the bond issuer pays you interest for the borrowed money, and, at the same time, repay you the original amount you paid for the bond (principal).
+            
+                        <a href="startinvestment.html">
+                            <button>Invest</button> 
+                          </a>
+
+                          </div>
+            
+                        </div>
+            <!-- end of investment type card -->
+    
+                    </div>
+    
+                </div>
+    
+          
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
