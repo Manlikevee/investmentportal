@@ -223,7 +223,7 @@ if (found) {
    const state = document.getElementById('state').value; 
    const gender = document.getElementById('gender').value; 
    const address = document.getElementById('address').value; 
-   let status = 'true';
+   const status = 'true';
     
 
   const userprofile = {
@@ -241,24 +241,23 @@ if (found) {
     Address : address,
     Profile_updated : status
   }
-
+   
+  const find = Ppofile.find(detail => detail.firstname === username );
   Ppofile.push(userprofile)
 
 prfilestringify = JSON.stringify(Ppofile);
   localStorage.setItem('profiles', prfilestringify);
   if (firstname && lastname && mname && pnum && name_kin && phone_kin && country && city && state && gender && address) {
     alert('Filled fields stored')
-    window.location.href = ''
+    window.location.href = 'investment.html'
+   
   } else {
     
   }
  showpopup()
      }
-
-     
-         </script>
-         <script>
-            function showinvestmentslists() {
+ 
+     function showinvestmentslists() {
     const investmentlistmodal = document.getElementById('myoverlay')
 
     investmentlistmodal.classList.toggle('showlist')
@@ -298,7 +297,7 @@ function showpopup(){
     if (status == 'true'){
        alert('Profile updated')
     } else{
-        document.body.innerHTML += popup
+        document.body.innerHTML += popup;
     }
 }showpopup()
 
@@ -306,6 +305,9 @@ function showpopup(){
 function custompopup(){
 // coming soon
 }
+     
          </script>
+         
+         
 </body>
 </html>
