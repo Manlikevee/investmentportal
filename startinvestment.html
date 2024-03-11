@@ -197,10 +197,13 @@
     function payWithPaystack() {
         let activeprofile= [];              
 let myprofilearray = [];
-const email = localStorage.getItem('mail');
+const activeid = localStorage.getItem('activeuserid');
 myprofilearray =  localStorage.getItem('User details');
 Ppofile = JSON.parse(myprofilearray);
-         activeprofile = Ppofile.find(detail => detail.mail == email );
+         activeprofile = Ppofile.find(detail => detail.userid == activeid );
+         if (activeprofile) {
+            
+         }
   let handler = PaystackPop.setup({
     key: 'pk_test_7c1ec0c9fe734ba2a63d9e3037c4fdb61f05908e', // Replace with your public key
     email:  activeprofile.mail,
