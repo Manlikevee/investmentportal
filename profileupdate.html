@@ -223,7 +223,7 @@ if (found) {
    const state = document.getElementById('state').value; 
    const gender = document.getElementById('gender').value; 
    const address = document.getElementById('address').value; 
-   const status = 'true';
+   let status = 'true'
     
 
   const userprofile = {
@@ -242,14 +242,15 @@ if (found) {
     Profile_updated : status
   }
    
-  const find = Ppofile.find(detail => detail.firstname === username );
+  const find = Ppofile.find(detail => detail.firstname === firstname );
   Ppofile.push(userprofile)
 
 prfilestringify = JSON.stringify(Ppofile);
   localStorage.setItem('profiles', prfilestringify);
   if (firstname && lastname && mname && pnum && name_kin && phone_kin && country && city && state && gender && address) {
-    alert('Filled fields stored')
-    window.location.href = 'investment.html'
+    alert('Filled fields stored');
+    let status = 'true';
+    window.location.href = 'investment.html';
    
   } else {
     
@@ -265,7 +266,15 @@ prfilestringify = JSON.stringify(Ppofile);
 }
 
 function showpopup(){
-    let status = 'true'
+
+    let status = 'false'
+    
+    if (myprofilearray) {
+        Ppofile = JSON.parse(myprofilearray);
+        status = Ppofile.Profile_updated
+     } 
+
+
     const popup = `
     <div class="loading-over2" style="display: block;">
     <div class="popup">
@@ -294,12 +303,13 @@ function showpopup(){
     </div>
     </div>
     ` 
-    if (status == 'true'){
-       alert('Profile updated')
-    } else{
+    if (status == 'false'){
         document.body.innerHTML += popup;
+
+    } else{
+        console.log(status)
     }
-}showpopup()
+}
 
 
 function custompopup(){

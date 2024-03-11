@@ -1,3 +1,10 @@
+let activeprofile= []
+let myprofilearray = []
+const activeid = localStorage.getItem('activeuserid')
+myprofilearray =  localStorage.getItem('profiles');
+
+
+
 
 function showinvestmentslists() {
     const investmentlistmodal = document.getElementById('myoverlay')
@@ -7,7 +14,15 @@ function showinvestmentslists() {
 }
 
 function showpopup(){
+    const activeprofile = myprofilearray.find(detail => detail.userid == activeid );
     let status = 'false'
+    
+    if (activeprofile) {
+        Ppofile = JSON.parse(myprofilearray);
+        status = activeprofile.Profile_updated
+     } 
+
+
     const popup = `
     <div class="loading-over2" style="display: block;">
     <div class="popup">
@@ -37,11 +52,13 @@ function showpopup(){
     </div>
     ` 
     if (status == 'false'){
-        document.body.innerHTML += popup
-    } else{
+        document.body.innerHTML += popup;
 
+    } else{
+        console.log(status)
     }
-}showpopup()
+}
+showpopup()
 
 
 function custompopup(){

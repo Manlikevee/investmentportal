@@ -168,36 +168,6 @@
     </div>
     <script src="script.js"></script>
 
-    <script>
-        let Ppofile = [
 
-]
-let myprofilearray=''
-
-
-myprofilearray =  localStorage.getItem('profiles');
-     
-     if (myprofilearray) {
-        Ppofile = JSON.parse(myprofilearray);
-     } 
-
-     function add(){
-        
-        const myuser = '';
-        const name = Ppofile.find(detail => detail.firstname == myuser);
- 
-
- if (name) {
-      document.getElementById('myuser').innerHTML = name.firstname;
-     console.log(name)
- }
-
-
-}add()
-
-  
-
-
-    </script>
 </body>
 </html>
