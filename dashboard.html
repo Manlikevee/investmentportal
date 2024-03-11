@@ -8,22 +8,17 @@
   </head>
   <body>
     <header>
-      <div class="container">
-        <div class="loginlinks">
-          <div class="logo">
-            <a href="index.html"
-              ><img src="img/ProduqtEdge Logo.png" alt=""
-            /></a>
-          </div>
-          <div class="links">
-            <a href="dashboard.html" class="activelink">Dashboard</a>
-            <a href="investment.html">Investment</a>
-            <a href="">Support</a>
-          </div>
-
-          <a href="profile.html" class="avatar">
-            <div class="uname" id="uname">
-              Oluwatosin Ajayi
+        <div class="container">
+            <div class="loginlinks">
+                <div class="logo">
+                    <a href="index.html"><img src="img/ProduqtEdge Logo.png" alt=""></a>   
+                </div>
+                <div class="links">
+                    <a href="dashboard.html" class="activelink">Dashboard</a>
+                    <a href="investment.html">Investment</a>
+                    <a href="">Support</a>
+                    <a href="#" onclick="logout()">Logout</a>
+                </div>
 
               <small>User Account</small>
             </div>
@@ -111,7 +106,12 @@
       </div>
     </div>
     <script>
+<<<<<<< HEAD
       const investments = [
+=======
+      function myarray() {
+        const investments = [
+>>>>>>> 4fd4324a577fa567580a14a084f23beee99e1abc
           {
             id: 4433443,
             name: "Bluechip Stocks",
@@ -202,7 +202,6 @@
         divElement.innerHTML = post.join("");
       }
       myarray();
-
     </script>
     <script src="script.js"></script>
   </body>
