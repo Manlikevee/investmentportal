@@ -159,5 +159,26 @@
         </div>
     </div>
     <script src="script.js"></script>
+
+
+    <script>
+
+        function investmentdata(){
+            var currentURL = new URL(window.location.href);
+
+// Get the value of the 'investid' parameter using URLSearchParams
+var investidValue = currentURL.searchParams.get('investmentid');
+
+if (!investidValue){
+alert('invalid investment id')
+}
+else{
+    console.log(investidValue)
+}
+// Log the value to the console
+
+        }
+      
+    </script>
 </body>
 </html>
