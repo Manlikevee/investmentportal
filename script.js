@@ -14,13 +14,16 @@ function showinvestmentslists() {
 }
 
 function showpopup(){
-    const activeprofile = myprofilearray.find(detail => detail.userid == activeid );
     let status = 'false'
-    
-    if (activeprofile) {
+    if (myprofilearray){
         Ppofile = JSON.parse(myprofilearray);
+        const activeprofile = Ppofile.find(detail => detail.userid == activeid );
         status = activeprofile.Profile_updated
-     } 
+    }
+   
+
+    
+
 
 
     const popup = `
