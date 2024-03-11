@@ -106,7 +106,7 @@
 
         </div>
 <div class="formflex">
-    <button onclick="payWithPaystack()">Proceed</button>
+    <button onclick="store()">Proceed</button>
 </div>
        <a href="startinvestmentpreview.html">what next page should look like ?</a>
     </div>
@@ -194,50 +194,7 @@
     }
   
   
-    function payWithPaystack() {
-        let activeprofile= [];              
-let myprofilearray = [];
-const activeid = localStorage.getItem('activeuserid');
-myprofilearray =  localStorage.getItem('User details');
-Ppofile = JSON.parse(myprofilearray);
-         activeprofile = Ppofile.find(detail => detail.userid == activeid );
-         if (activeprofile) {
-            
-         }
-  let handler = PaystackPop.setup({
-    key: 'pk_test_7c1ec0c9fe734ba2a63d9e3037c4fdb61f05908e', // Replace with your public key
-    email:  activeprofile.mail,
-    amount: document.getElementById("amount").value * 100,
-    ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
-    // label: "Optional string that replaces customer email"
-    onClose: function(){
-      alert('Window closed.');
-    },
-
-    callback: function(response){
-        const amount = document.getElementById('amount').value;
-        const tenure = document.getElementById('tenure').value;
-        const rate = document.getElementById('rate').value;
-        const interest = document.getElementById('interest').value;
-        const tamount = document.getElementById('amtpay').value
-
-    if (amount && rate && tenure && interest && amtpay) {
-        localStorage.setItem('Principal', amount)
-        localStorage.setItem('Tenure', tenure)
-        localStorage.setItem('Rate', rate)
-        localStorage.setItem('Interest', interest)
-        localStorage.setItem('Total amount', tamount)
-         localStorage.setItem('Effective Date', edate)
-          localStorage.setItem('Maturity Date', mdate)
-        
-    } else {
-        
-    }
-    }
-  });
-
-  handler.openIframe();
-}
+   
 
   
 function investmentdata(){
@@ -254,6 +211,59 @@ else{
 }
 // Log the value to the console
 
+        }investmentdata()
+
+        function store(){
+            var currentURL = new URL(window.location.href);
+
+// Get the value of the 'investid' parameter using URLSearchParams
+var investidValue = currentURL.searchParams.get('investmentid');
+            let invest = [
+
+            ];
+
+const alluserinvestments = localStorage.getItem('Investment details')
+
+
+if(alluserinvestments){
+
+    invest =  JSON.parse(alluserinvestments) 
+}
+
+
+
+            let activeuserid= localStorage.getItem('activeuserid');
+            const amount = document.getElementById('amount').value;
+        const tenure = document.getElementById('tenure').value; 
+        const rate = document.getElementById('rate').value;
+        const edate = document.getElementById('edate').value;
+        const interest = document.getElementById('interest').value;
+        const tamount = document.getElementById('amtpay').value
+
+        const mdate = document.getElementById('mdate').value;
+        let id_value = Math.floor(Math.random() * 64234345172725) + 1/ 542415 
+
+        const newevent = {
+            investmentid: investidValue,
+            id:  id_value,
+            userid : activeuserid,
+    Principal : amount,
+    Tenure : tenure,
+    Rate : rate,
+    Effective_date : edate,
+    Maturity_date : mdate,
+    Interest : interest,
+    totalamount : tamount,
+    status: 'pending'
+}
+        if (amount && tenure && rate && edate && mdate) {
+            invest.push(newevent)
+            const investment = JSON.stringify(invest);
+  localStorage.setItem('Investment details', investment);
+  window.location.href= `startinvestmentpreview.html?investmentid=${id_value}`
+        } else {
+            
+        }
         }
     </script>
 </body>

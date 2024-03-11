@@ -382,8 +382,8 @@ function autofill(){
         console.log(activeid)
 
         
-       
-        const found = users.find(detail => detail.id == activeid );
+        
+            const found = users.find(detail => detail.id == activeid );
 
         if (found) {
             document.getElementById('email').value =  found.mail
