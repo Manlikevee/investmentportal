@@ -744,6 +744,8 @@ color: rgba(0, 0, 0, 1);
 .logobtn{
 margin-top: 5px;
 margin-bottom: 10px;
+display: flex;
+gap: 10px;
 }
 .arwbtn {
 width: 100%;
