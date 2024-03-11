@@ -67,24 +67,24 @@ Trest polyk: pertad. Tir fanönas dev men sohet, krorat Ove Håkansson. Kassalö
                 <div class="sumry">
                     <div class="invsummary">
                         <div class="invkey">Principal</div>
-                        <div class="invval">N 10,000,000.00</div>
+                        <div class="invval" id="principal"></div>
                     </div>
                     <div class="invsummary">
-                        <div class="invkey">Tenor</div>
-                        <div class="invval">90 days</div>
+                        <div class="invkey">Tenure</div>
+                        <div class="invval" id="tenure"></div>
                     </div>
                     <div class="invsummary">
                         <div class="invkey">Interest (5%)</div>
-                        <div class="invval">N2,000</div>
+                        <div class="invval" id="interest"></div>
                     </div>
                     <div class="invsummary">
                         <div class="invkey">Maturity Amount</div>
-                        <div class="invval">N42,000</div>
+                        <div class="invval" id="amount"></div>
                     </div>
                     
                     
                     <div class="formflex">
-                        <button>Proceed to Pay</button>
+                        <button onclick="payWithPaystack()">Proceed to Pay</button>
                     </div>
                 </div>
                 <div class="placeholderimg">
@@ -145,5 +145,82 @@ Trest polyk: pertad. Tir fanönas dev men sohet, krorat Ove Håkansson. Kassalö
         </div>
     </div>
     <script src="script.js"></script>
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+    <script>
+     var currentURL = new URL(window.location.href);
+
+// Get the value of the 'investid' parameter using URLSearchParams
+var investidValue = currentURL.searchParams.get('investmentid');
+
+let allinvestments = []
+const investment = localStorage.getItem('Investment details')
+
+
+if(investment){
+    inv = JSON.parse(investment);
+    allinvestments = inv
+}
+
+
+ function investmentdetails(){
+
+
+const findinvestment = allinvestments.find(allinvestment => allinvestment.id == investidValue );
+
+if(findinvestment){
+  
+    document.getElementById('principal').innerHTML = findinvestment.Principal;
+    document.getElementById('tenure').innerHTML = findinvestment.Tenure;
+    document.getElementById('interest').innerHTML = findinvestment.Rate;
+    document.getElementById('amount').innerHTML = findinvestment.totalamount;
+console.log(findinvestment)
+console.log(allinvestments)
+}else{
+alert('not found !!!!!!!!!!!!!')
+}
+
+
+ }investmentdetails()
+
+  function payWithPaystack() {
+    let activeprofile= [];              
+let myprofilearray = [];
+const activeid = localStorage.getItem('activeuserid');
+myprofilearray =  localStorage.getItem('User details');
+Ppofile = JSON.parse(myprofilearray);
+         activeprofile = Ppofile.find(detail => detail.id == activeid );
+         if (activeprofile) {
+            
+         }
+
+         console.log(activeprofile.mail)
+  let handler = PaystackPop.setup({
+    key: 'pk_test_7c1ec0c9fe734ba2a63d9e3037c4fdb61f05908e', // Replace with your public key
+    email:  activeprofile.mail,
+    amount: document.getElementById('principal').innerHTML * 100,
+    ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+    // label: "Optional string that replaces customer email"
+    onClose: function(){
+      alert('Window closed.');
+    },
+
+    callback: function(response) {
+        console.log('trying ')
+
+        const selected = allinvestments.find(allinvestment => allinvestment.id == investidValue );
+        selected.status = 'successful'
+        console.log('doneeeeeeeeeee')
+        console.log(selected)
+        const investment = JSON.stringify(allinvestments);
+        localStorage.setItem('Investment details', investment);
+        window.location.href = 'dashboard.html'
+    }
+  });
+
+  handler.openIframe();
+          
+
+}
+    </script>
 </body>
 </html>
