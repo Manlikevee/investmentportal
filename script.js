@@ -31,6 +31,7 @@ function showpopup(){
 
 
     const popup = `
+
     <div class="loading-over2" style="display: block;">
     <div class="popup">
         <p id="close2"></p>
