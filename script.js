@@ -52,7 +52,7 @@ function showpopup(){
     <div class="logobtn">
 
                 <a href="profileupdate.html" type="button"  class="arwbtn"> Proceed </a>
-                <a href="profileupdate.html" type="button"  class="arwbtn"> Proceed </a>
+                <a href="login.html" type="button"  class="arwbtn"> Log Out</a>
 
     </div>
     </div>
@@ -71,4 +71,11 @@ showpopup()
 
 function custompopup(){
 // coming soon
+}
+ 
+const activeuserid = localStorage.getItem('activeuserid')
+function checkstatus(){
+    if(activeuserid){
+        window.location.href= 'investment.html'
+    }
 }
