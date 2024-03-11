@@ -20,19 +20,6 @@ function showpopup(){
         Profile = JSON.parse(myprofilearray);
         status = activeprofile.Profile_updated
      } 
-    if (myprofilearray){
-        Ppofile = JSON.parse(myprofilearray);
-        const activeprofile = Ppofile.find(detail => detail.userid == activeid );
-        
-        if (activeprofile) {
-            status = activeprofile.Profile_updated
-        }
-    
-    }
-   
-
-    
-
 
 
     const popup = `
