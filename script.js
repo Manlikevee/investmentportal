@@ -18,7 +18,11 @@ function showpopup(){
     if (myprofilearray){
         Ppofile = JSON.parse(myprofilearray);
         const activeprofile = Ppofile.find(detail => detail.userid == activeid );
-        status = activeprofile.Profile_updated
+        
+        if (activeprofile) {
+            status = activeprofile.Profile_updated
+        }
+    
     }
    
 
@@ -47,6 +51,7 @@ function showpopup(){
     </div>
     <div class="logobtn">
 
+                <a href="profileupdate.html" type="button"  class="arwbtn"> Proceed </a>
                 <a href="profileupdate.html" type="button"  class="arwbtn"> Proceed </a>
 
     </div>

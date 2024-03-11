@@ -93,6 +93,17 @@ alert('incorrect details')
     alert('Please fill all fields')
 }
         }
-    </script>
+ 
+ 
+
+        function checkstatus(){
+const activeuserid = localStorage.getItem('activeuserid')
+
+if(activeuserid){
+    window.location.href= 'investment.html'
+}
+        }checkstatus()
+ 
+ </script>
 </body>
 </html>
