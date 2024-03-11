@@ -56,12 +56,12 @@
         <div class="formflex">
             <div class="inputblock">
                 <label for="">Principal Amount</label>
-                <input type="number" id="">
+                <input type="number" id="amount" oninput="calculate()">
             </div>  
 
             <div class="inputblock">
-                <label for="">Principal Amount</label>
-                <input type="date" id="">
+                <label for="">Effective Date</label>
+                <input type="date" id="edate">
             </div>  
 
         </div>
@@ -69,13 +69,13 @@
         
         <div class="formflex">
             <div class="inputblock">
-                <label for="">Tenor</label>
-                <input type="number" id="">
+                <label for="">Tenure</label>
+                <input type="number" id="tenure" oninput="calculate()">
             </div>  
 
             <div class="inputblock">
                 <label for="">Interest Rate</label>
-                <input type="number" id="" readonly>
+                <input type="number" id="rate" value="12" readonly oninput="calculate()">
             </div>  
 
         </div>
@@ -84,12 +84,12 @@
         <div class="formflex">
             <div class="inputblock">
                 <label for="">Maturity Date</label>
-                <input type="date" id="">
+                <input type="date" id="mdate">
             </div>  
 
             <div class="inputblock">
                 <label for="">Interest Payable at Maturity</label>
-                <input type="number" id="" readonly>
+                <input type="number" id="interest" readonly oninput="calculate()">
             </div>  
 
         </div>
@@ -97,7 +97,7 @@
         <div class="formflex">
             <div class="inputblock">
                 <label for="">Total Amount Payable at Maturity</label>
-                <input type="number" id="">
+                <input type="number" id="amtpay" oninput="calc()">
             </div>  
 
             <div class="inputblock">
@@ -106,7 +106,7 @@
 
         </div>
 <div class="formflex">
-    <button>Proceed</button>
+    <button onclick="store()">Proceed</button>
 </div>
        <a href="startinvestmentpreview.html">what next page should look like ?</a>
     </div>
@@ -159,5 +159,112 @@
         </div>
     </div>
     <script src="script.js"></script>
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+
+
+    <script>
+ 
+
+    function calculate(){
+        const amount = document.getElementById('amount').value;
+        const tenure = document.getElementById('tenure').value; 
+        const rate = document.getElementById('rate').value;
+        const edate = document.getElementById('edate').value;
+
+        const mdate = document.getElementById('mdate').value
+
+
+        const simpleinterest = parseInt(amount) * parseInt(rate) * parseInt(tenure) / 100;
+  
+          document.getElementById('interest').value = simpleinterest;
+          calc()
+           }
+
+    function calc()
+    {
+        const amount = document.getElementById('amount').value;
+        const interest = document.getElementById('interest').value;
+
+
+        const totalamount = parseInt(amount) + parseInt(interest) 
+
+      
+  
+  document.getElementById('amtpay').value = totalamount
+    }
+  
+  
+   
+
+  
+function investmentdata(){
+            var currentURL = new URL(window.location.href);
+
+// Get the value of the 'investid' parameter using URLSearchParams
+var investidValue = currentURL.searchParams.get('investmentid');
+
+if (!investidValue){
+alert('invalid investment id')
+}
+else{
+    console.log(investidValue)
+}
+// Log the value to the console
+
+        }investmentdata()
+
+        function store(){
+            var currentURL = new URL(window.location.href);
+
+// Get the value of the 'investid' parameter using URLSearchParams
+var investidValue = currentURL.searchParams.get('investmentid');
+            let invest = [
+
+            ];
+
+const alluserinvestments = localStorage.getItem('Investment details')
+
+
+if(alluserinvestments){
+
+    invest =  JSON.parse(alluserinvestments) 
+}
+
+
+
+            let activeuserid= localStorage.getItem('activeuserid');
+            const amount = document.getElementById('amount').value;
+        const tenure = document.getElementById('tenure').value; 
+        const rate = document.getElementById('rate').value;
+        const edate = document.getElementById('edate').value;
+        const interest = document.getElementById('interest').value;
+        const tamount = document.getElementById('amtpay').value
+
+        const mdate = document.getElementById('mdate').value;
+        let id_value = Math.floor(Math.random() * 64234345172725) + 1/ 542415 
+
+        const newevent = {
+            investmentid: investidValue,
+            id:  id_value,
+            userid : activeuserid,
+    Principal : amount,
+    Tenure : tenure,
+    Rate : rate,
+    Effective_date : edate,
+    Maturity_date : mdate,
+    Interest : interest,
+    totalamount : tamount,
+    status: 'pending'
+}
+        if (amount && tenure && rate && edate && mdate) {
+            invest.push(newevent)
+            const investment = JSON.stringify(invest);
+  localStorage.setItem('Investment details', investment);
+  window.location.href= `startinvestmentpreview.html?investmentid=${id_value}`
+        } else {
+            
+        }
+        }
+    </script>
 </body>
 </html>

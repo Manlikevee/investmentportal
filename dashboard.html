@@ -8,22 +8,17 @@
   </head>
   <body>
     <header>
-      <div class="container">
-        <div class="loginlinks">
-          <div class="logo">
-            <a href="index.html"
-              ><img src="img/ProduqtEdge Logo.png" alt=""
-            /></a>
-          </div>
-          <div class="links">
-            <a href="dashboard.html" class="activelink">Dashboard</a>
-            <a href="investment.html">Investment</a>
-            <a href="">Support</a>
-          </div>
-
-          <a href="profile.html" class="avatar">
-            <div class="uname" id="uname">
-              Oluwatosin Ajayi
+        <div class="container">
+            <div class="loginlinks">
+                <div class="logo">
+                    <a href="index.html"><img src="img/ProduqtEdge Logo.png" alt=""></a>   
+                </div>
+                <div class="links">
+                    <a href="dashboard.html" class="activelink">Dashboard</a>
+                    <a href="investment.html">Investment</a>
+                    <a href="">Support</a>
+                    <a href="#" onclick="logout()">Logout</a>
+                </div>
 
               <small>User Account</small>
             </div>
@@ -111,7 +106,7 @@
       </div>
     </div>
     <script>
-      function myarray() {
+ 
         const investments = [
           {
             id: 4433443,
@@ -185,6 +180,8 @@
           },
         ];
 
+      function myarray() {
+  
         var divElement = document.getElementById("myinvestmenttypes");
         var post = investments.map(function (test) {
           return ` <div class="addinvestment_body">
@@ -200,7 +197,31 @@
         });
         divElement.innerHTML = post.join("");
       }
-      myarray();
+      myarray()
+
+
+      function userinvestments(){
+userid = localStorage.getItem('activeuserid')
+
+        let userinvestments = []
+        const alluserinvestments = localStorage.getItem('Investment details')
+
+
+if(alluserinvestments){
+
+    userinvestments =  JSON.parse(alluserinvestments) 
+}
+
+        let filtereddata = userinvestments.filter(
+          details => details.userid == userid
+        )
+
+
+console.log(filtereddata)
+
+      } userinvestments()
+
+
     </script>
     <script src="script.js"></script>
   </body>
