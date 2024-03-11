@@ -1,147 +1,262 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard | Investment Portal</title>
-    <link rel="stylesheet" href="style.css">
-    
-</head>
-<body>
-
-
-
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <header>
-        <div class="container">
-            <div class="loginlinks">
-                <div class="logo">
-                    <a href="index.html"><img src="img/ProduqtEdge Logo.png" alt=""></a>   
-                </div>
-                <div class="links">
-                    <a href="dashboard.html" class="activelink">Dashboard</a>
-                    <a href="investment.html">Investment</a>
-                    <a href="">Support</a>
+      <div class="container">
+        <div class="loginlinks">
+          <div class="logo">
+            <a href="index.html"
+              ><img src="img/ProduqtEdge Logo.png" alt=""
+            /></a>
+          </div>
+          <div class="links">
+            <a href="dashboard.html" class="activelink">Dashboard</a>
+            <a href="investment.html">Investment</a>
+            <a href="">Support</a>
+          </div>
 
-                </div>
+          <a href="profile.html" class="avatar">
+            <div class="uname" id="uname">
+              Oluwatosin Ajayi
 
-                <a href="profile.html" class="avatar">
-                    <div class="uname" id="uname">Oluwatosin Ajayi
-                       
-                            <small>User Account</small>
-                        
-                    </div>
-                    <div class="avatarimg">
-                        <img src="img/christopher-campbell-rDEOVtE7vOs-unsplash.jpg" alt=""></div>
-                </a>
+              <small>User Account</small>
             </div>
+            <div class="avatarimg">
+              <img
+                src="img/christopher-campbell-rDEOVtE7vOs-unsplash.jpg"
+                alt=""
+              />
+            </div>
+          </a>
         </div>
+      </div>
     </header>
 
-
     <div class="container mydashboard">
-        <div class="welcome">
-            Welcome <span id="myuser">Bisola</span>  To Your Dashboard
+      <div class="welcome">
+        Welcome <span id="myuser">Bisola</span> To Your Dashboard
+      </div>
+      <div class="dashboardtop">
+        <div class="investmentboxamt">
+          <div class="bxtitle">Total Investment Amount</div>
+          <div class="bxvalue">
+            <div class="currency">₦</div>
+            <div class="totalmoney">100,000,000</div>
+          </div>
         </div>
-        <div class="dashboardtop">
-<div class="investmentboxamt">
-<div class="bxtitle">Total Investment Amount</div>
-<div class="bxvalue"> <div class="currency">₦</div> <div class="totalmoney">100,000,000</div> </div>
-</div>
-<div class="investmentnumber">
-<div class="bxtitle">Total Number of Investment</div>
-<div class="bxvalue">10</div>
-</div>
-<div class="addinvestment" onclick="showinvestmentslists()">
-<div class="bxicon">+</div>
-<div class="bxtext">Add Investment</div>
-</div>
+        <div class="investmentnumber">
+          <div class="bxtitle">Total Number of Investment</div>
+          <div class="bxvalue">10</div>
         </div>
-<br>
-        <div class="dashboardsearch">
-           <div class="dashboardsearchtext">
-            Recent Activities
-           </div> 
-            <div class="searchinput">
-                <input type="text" placeholder="Search by Transaction Reference number "><button>Search</button>
-            </div>
-            <div class="subtext">This shows the most recent activities across your crystal finance account.</div>
+        <div class="addinvestment" onclick="showinvestmentslists()">
+          <div class="bxicon">+</div>
+          <div class="bxtext">Add Investment</div>
         </div>
+      </div>
+      <br />
+      <div class="dashboardsearch">
+        <div class="dashboardsearchtext">Recent Activities</div>
+        <div class="searchinput">
+          <input
+            type="text"
+            placeholder="Search by Transaction Reference number "
+          /><button>Search</button>
+        </div>
+        <div class="subtext">
+          This shows the most recent activities across your crystal finance
+          account.
+        </div>
+      </div>
 
-
-
-        <div class="dashboardrecentinvestments">
-
-            <div class="dashpreviewcard">
-                <img src="walletimg.png" alt="">
-                <div class="investmentstatus">
-                    <div class="status">Investment successful</div>
-                    <div class="date">2-10-2024</div>
-                </div>
-                <div class="previewamount">
-                    N50,000.00
-                </div>
-            </div>
-
-            <div class="dashpreviewcard">
-                <img src="walletimg.png" alt="">
-                <div class="investmentstatus">
-                    <div class="status">Investment successful</div>
-                    <div class="date">2-10-2024</div>
-                </div>
-                <div class="previewamount">
-                    N50,000.00
-                </div>
-            </div>
-
+      <div class="dashboardrecentinvestments">
+        <div class="dashpreviewcard">
+          <img src="walletimg.png" alt="" />
+          <div class="investmentstatus">
+            <div class="status">Investment successful</div>
+            <div class="date">2-10-2024</div>
+          </div>
+          <div class="previewamount">N50,000.00</div>
         </div>
 
-
-
+        <div class="dashpreviewcard">
+          <img src="walletimg.png" alt="" />
+          <div class="investmentstatus">
+            <div class="status">Investment successful</div>
+            <div class="date">2-10-2024</div>
+          </div>
+          <div class="previewamount">N50,000.00</div>
+        </div>
+      </div>
     </div>
 
-
-
-<!-- investments list is here -->
+    <!-- investments list is here -->
 
     <div class="overlay" id="myoverlay">
-        <div class="allinvestmentsblock">
-    
-       
-                <div class="addnew_investment">
-                      <div class="addinvestment_headtext">
-                    <span>Available Investments (9)</span>   
-                    <b class="btn-modal-close"  onclick="showinvestmentslists()">x</b>
-                    </div>
-                    <div class="investmentwrappe" id="myinvestmenttypes">
-    
+      <div class="allinvestmentsblock">
+        <div class="addnew_investment">
+          <div class="addinvestment_headtext">
+            <span>Available Investments (9)</span>
+            <b class="btn-modal-close" onclick="showinvestmentslists()">x</b>
+          </div>
+          <div class="investmentwrappe" id="myinvestmenttypes">
             <!-- simple html for ivestment types -->
-                        <div class="addinvestment_body">
-                            <div class="addinvestment_gold">
-                               Stocks
-                            </div>
-                          <div class="bodyofwork">
-                        A bond is an investment where you lend money to a company, government, and other types of organization. In return, the bond issuer pays you interest for the borrowed money, and, at the same time, repay you the original amount you paid for the bond (principal).
-            
-                           
-                          
-                                <a href="startinvestment.html">
-                                    <button>Invest</button> 
-                                  </a>
-            
-                          </div>
-            
-                        </div>
-            
-    
-                    </div>
-    
-                </div>
-    
-          
+          </div>
         </div>
+      </div>
     </div>
-    <script src="script.js"></script>
+    <script>
+<<<<<<< HEAD
+      function myarray() {
+        const investments = [
+          {
+            id: 4433443,
+            name: "Bluechip Stocks",
+            description:
+              "Invest in stable, large-cap companies with consistent dividend payouts. Bluechip stocks are renowned for their resilience, often weathering market downturns and providing investors with reliable returns over the long term. By diversifying your portfolio with these industry leaders, you can benefit from their established track record and potential for steady growth.",
+            interestRate: 7.5, // 7.5% interest rate
+          },
+          {
+            id: 4433445,
+            name: "Real Estate Investment Trusts (REITs)",
+            description:
+              "Diversify your portfolio by investing in income-generating real estate properties. Real Estate Investment Trusts (REITs) offer investors the opportunity to access the real estate market without the hassle of property management. These trusts typically invest in a diversified portfolio of properties, including residential, commercial, and industrial assets, providing stable income streams through rental yields and potential capital appreciation.",
+            interestRate: 6.8, // 6.8% interest rate
+          },
+          {
+            id: 4433447,
+            name: "Government Bonds",
+            description:
+              "Invest in bonds issued by the government, known for their low risk and steady returns. Government bonds, also known as treasuries, are debt securities issued by sovereign governments to finance public spending. These bonds are considered one of the safest investments available, as they are backed by the full faith and credit of the issuing government. With their predictable interest payments and return of principal at maturity, government bonds are favored by conservative investors seeking capital preservation and income.",
+            interestRate: 4.2, // 4.2% interest rate
+          },
+          {
+            id: 4433449,
+            name: "Cryptocurrency Portfolio",
+            description:
+              "Dabble in the volatile yet potentially lucrative world of digital assets. Cryptocurrencies have emerged as a disruptive force in the financial markets, offering investors the opportunity to participate in a decentralized, borderless digital economy. While cryptocurrencies are known for their extreme volatility and speculative nature, they also present unique opportunities for diversification and high returns. By carefully constructing a diversified cryptocurrency portfolio and staying informed about market trends, investors can navigate this emerging asset class and potentially reap substantial rewards.",
+            interestRate: 10.3, // 10.3% interest rate
+          },
+          {
+            id: 4433451,
+            name: "High-Yield Savings Account",
+            description:
+              "Park your funds in a savings account offering competitive interest rates. High-yield savings accounts provide investors with a safe and convenient way to earn interest on their cash reserves. Unlike traditional savings accounts, which offer minimal interest rates, high-yield savings accounts offer significantly higher yields, allowing investors to maximize the returns on their idle cash. With features such as no minimum balance requirements and easy access to funds, high-yield savings accounts are an attractive option for short-term savings goals and emergency funds.",
+            interestRate: 3.5, // 3.5% interest rate
+          },
+          {
+            id: 4433453,
+            name: "Index Funds",
+            description:
+              "Invest in a diversified portfolio of stocks or bonds that track the performance of a specific index. Index funds offer investors exposure to a broad market index, such as the S&P 500 or the FTSE 100, at a relatively low cost. By mirroring the performance of the underlying index, these funds provide investors with diversification benefits and potential for long-term growth. With their passive management approach and low expense ratios, index funds are a popular choice for investors seeking a simple yet effective way to build wealth over time.",
+            interestRate: 6.0, // 6.0% interest rate
+          },
+          {
+            id: 4433455,
+            name: "Peer-to-Peer Lending",
+            description:
+              "Participate in peer-to-peer lending platforms that connect borrowers with individual investors. Peer-to-peer lending, also known as P2P lending, enables investors to lend money directly to borrowers through online platforms, cutting out traditional financial intermediaries such as banks. By diversifying their loan portfolios across multiple borrowers and loan types, investors can earn attractive returns while spreading the risk of default. With features such as automated investing and secondary market trading, peer-to-peer lending offers investors a convenient and transparent way to generate passive income.",
+            interestRate: 8.2, // 8.2% interest rate
+          },
+          {
+            id: 4433457,
+            name: "Dividend-Paying Stocks",
+            description:
+              "Invest in stocks that pay regular dividends to shareholders. Dividend-paying stocks are companies that distribute a portion of their earnings to investors in the form of dividends. These stocks are favored by income-oriented investors seeking a steady stream of passive income. By investing in dividend-paying stocks with a history of consistent dividend growth and strong fundamentals, investors can build a portfolio that generates reliable income and potential for capital appreciation over time.",
+            interestRate: 5.7, // 5.7% interest rate
+          },
+          {
+            id: 4433459,
+            name: "Gold and Precious Metals",
+            description:
+              "Allocate a portion of your portfolio to gold and other precious metals as a hedge against inflation and economic uncertainty. Gold has long been considered a safe haven asset, prized for its intrinsic value and scarcity. As a tangible asset with intrinsic value, gold serves as a store of wealth and a hedge against currency devaluation and geopolitical risks. By diversifying your portfolio with gold and precious metals, you can mitigate the effects of market volatility and preserve your purchasing power over the long term.",
+            interestRate: 2.8, // 2.8% interest rate
+          },
+          {
+            id: 4433461,
+            name: "Sustainable Investments",
+            description:
+              "Invest in companies and funds that prioritize environmental, social, and governance (ESG) factors. Sustainable investments seek to generate positive social and environmental impact alongside financial returns. By aligning your investment strategy with your values and beliefs, you can contribute to positive change while building wealth for the future. Sustainable investments encompass a wide range of asset classes, including green bonds, renewable energy stocks, and socially responsible mutual funds.",
+            interestRate: 7.1, // 7.1% interest rate
+          },
+        ];
 
-   
-</body>
+        var divElement = document.getElementById("myinvestmenttypes");
+        var post = investments.map(function (test) {
+          return ` <div class="addinvestment_body">
+              <div class="addinvestment_gold">${test.name}</div>
+              <div class="bodyofwork">
+               ${test.description}
+
+                <a href="startinvestment.html?investmentid=${test.id}">
+                  <button>Invest</button>
+                </a>
+              </div>
+            </div>`;
+        });
+        divElement.innerHTML = post.join("");
+      }
+      myarray();
+=======
+  const investments = [
+  {
+    name: "Bluechip Stocks",
+    description: "Invest in stable, large-cap companies with consistent dividend payouts. Bluechip stocks are renowned for their resilience, often weathering market downturns and providing investors with reliable returns over the long term. By diversifying your portfolio with these industry leaders, you can benefit from their established track record and potential for steady growth.",
+    interestRate: 7.5, // 7.5% interest rate
+  },
+  {
+    name: "Real Estate Investment Trusts (REITs)",
+    description: "Diversify your portfolio by investing in income-generating real estate properties. Real Estate Investment Trusts (REITs) offer investors the opportunity to access the real estate market without the hassle of property management. These trusts typically invest in a diversified portfolio of properties, including residential, commercial, and industrial assets, providing stable income streams through rental yields and potential capital appreciation.",
+    interestRate: 6.8, // 6.8% interest rate
+  },
+  {
+    name: "Government Bonds",
+    description: "Invest in bonds issued by the government, known for their low risk and steady returns. Government bonds, also known as treasuries, are debt securities issued by sovereign governments to finance public spending. These bonds are considered one of the safest investments available, as they are backed by the full faith and credit of the issuing government. With their predictable interest payments and return of principal at maturity, government bonds are favored by conservative investors seeking capital preservation and income.",
+    interestRate: 4.2, // 4.2% interest rate
+  },
+  {
+    name: "Cryptocurrency Portfolio",
+    description: "Dabble in the volatile yet potentially lucrative world of digital assets. Cryptocurrencies have emerged as a disruptive force in the financial markets, offering investors the opportunity to participate in a decentralized, borderless digital economy. While cryptocurrencies are known for their extreme volatility and speculative nature, they also present unique opportunities for diversification and high returns. By carefully constructing a diversified cryptocurrency portfolio and staying informed about market trends, investors can navigate this emerging asset class and potentially reap substantial rewards.",
+    interestRate: 10.3, // 10.3% interest rate
+  },
+  {
+    name: "High-Yield Savings Account",
+    description: "Park your funds in a savings account offering competitive interest rates. High-yield savings accounts provide investors with a safe and convenient way to earn interest on their cash reserves. Unlike traditional savings accounts, which offer minimal interest rates, high-yield savings accounts offer significantly higher yields, allowing investors to maximize the returns on their idle cash. With features such as no minimum balance requirements and easy access to funds, high-yield savings accounts are an attractive option for short-term savings goals and emergency funds.",
+    interestRate: 3.5, // 3.5% interest rate
+  },
+  {
+    name: "Index Funds",
+    description: "Invest in a diversified portfolio of stocks or bonds that track the performance of a specific index. Index funds offer investors exposure to a broad market index, such as the S&P 500 or the FTSE 100, at a relatively low cost. By mirroring the performance of the underlying index, these funds provide investors with diversification benefits and potential for long-term growth. With their passive management approach and low expense ratios, index funds are a popular choice for investors seeking a simple yet effective way to build wealth over time.",
+    interestRate: 6.0, // 6.0% interest rate
+  },
+  {
+    name: "Peer-to-Peer Lending",
+    description: "Participate in peer-to-peer lending platforms that connect borrowers with individual investors. Peer-to-peer lending, also known as P2P lending, enables investors to lend money directly to borrowers through online platforms, cutting out traditional financial intermediaries such as banks. By diversifying their loan portfolios across multiple borrowers and loan types, investors can earn attractive returns while spreading the risk of default. With features such as automated investing and secondary market trading, peer-to-peer lending offers investors a convenient and transparent way to generate passive income.",
+    interestRate: 8.2, // 8.2% interest rate
+  },
+  {
+    name: "Dividend-Paying Stocks",
+    description: "Invest in stocks that pay regular dividends to shareholders. Dividend-paying stocks are companies that distribute a portion of their earnings to investors in the form of dividends. These stocks are favored by income-oriented investors seeking a steady stream of passive income. By investing in dividend-paying stocks with a history of consistent dividend growth and strong fundamentals, investors can build a portfolio that generates reliable income and potential for capital appreciation over time.",
+    interestRate: 5.7, // 5.7% interest rate
+  },
+  {
+    name: "Gold and Precious Metals",
+    description: "Allocate a portion of your portfolio to gold and other precious metals as a hedge against inflation and economic uncertainty. Gold has long been considered a safe haven asset, prized for its intrinsic value and scarcity. As a tangible asset with intrinsic value, gold serves as a store of wealth and a hedge against currency devaluation and geopolitical risks. By diversifying your portfolio with gold and precious metals, you can mitigate the effects of market volatility and preserve your purchasing power over the long term.",
+    interestRate: 2.8, // 2.8% interest rate
+  },
+  {
+    name: "Sustainable Investments",
+    description: "Invest in companies and funds that prioritize environmental, social, and governance (ESG) factors. Sustainable investments seek to generate positive social and environmental impact alongside financial returns. By aligning your investment strategy with your values and beliefs, you can contribute to positive change while building wealth for the future. Sustainable investments encompass a wide range of asset classes, including green bonds, renewable energy stocks, and socially responsible mutual funds.",
+    interestRate: 7.1, // 7.1% interest rate
+  }
+];
+>>>>>>> 2afc0e9e3e47835e734a0bf67157c9f16a8db131
+    </script>
+    <script src="script.js"></script>
+  </body>
 </html>

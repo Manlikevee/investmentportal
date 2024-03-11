@@ -3,7 +3,7 @@ let myprofilearray = []
 const activeid = localStorage.getItem('activeuserid')
 myprofilearray =  localStorage.getItem('profiles');
 
-
+ 
 
 
 function showinvestmentslists() {
@@ -14,13 +14,25 @@ function showinvestmentslists() {
 }
 
 function showpopup(){
-    const activeprofile = myprofilearray.find(detail => detail.userid == activeid );
     let status = 'false'
     
     if (activeprofile) {
         Profile = JSON.parse(myprofilearray);
         status = activeprofile.Profile_updated
      } 
+    if (myprofilearray){
+        Ppofile = JSON.parse(myprofilearray);
+        const activeprofile = Ppofile.find(detail => detail.userid == activeid );
+        
+        if (activeprofile) {
+            status = activeprofile.Profile_updated
+        }
+    
+    }
+   
+
+    
+
 
 
     const popup = `
@@ -46,6 +58,7 @@ function showpopup(){
     <div class="logobtn">
 
                 <a href="profileupdate.html" type="button"  class="arwbtn"> Proceed </a>
+                <a href="login.html" type="button"  class="arwbtn"> Log Out</a>
 
     </div>
     </div>
@@ -64,4 +77,11 @@ showpopup()
 
 function custompopup(){
 // coming soon
+}
+ 
+const activeuserid = localStorage.getItem('activeuserid')
+function checkstatus(){
+    if(activeuserid){
+        window.location.href= 'investment.html'
+    }
 }
