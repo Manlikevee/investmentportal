@@ -199,8 +199,34 @@
           
         </div>
     </div>
-<script src="script.js">
-    const 
+<script src="script.js"></script>
+
+<script>
+
+
+    function getarray(){
+
+let myarray = ''
+
+mydata = localStorage.getItem('profiles')
+
+if (mydata){
+   myarray = JSON.parse(mydata);
+}
+
+console.log(myarray)
+
+function displayprofile(){
+const display = document.getElementById(userid).value
+let filterdata =profile.filter(profile=>userid.toLocaleLowerCase().includes (searchInput.toLocaleLowerCase())
+)
+let mydiv = ''
+filtereddata.forEach(fprofile =>{
+mydiv+= <div> ${fprofile.name}  </div>})
+
+demoDiv.innerHTML = mydiv
+}
+    }getarray()
 </script>
 </body>
 </html>
