@@ -3,7 +3,7 @@ let myprofilearray = []
 const activeid = localStorage.getItem('activeuserid')
 myprofilearray =  localStorage.getItem('profiles');
 
-
+ 
 
 
 function showinvestmentslists() {
