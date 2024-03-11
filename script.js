@@ -18,12 +18,13 @@ function showpopup(){
     let status = 'false'
     
     if (activeprofile) {
-        Ppofile = JSON.parse(myprofilearray);
+        Profile = JSON.parse(myprofilearray);
         status = activeprofile.Profile_updated
      } 
 
 
     const popup = `
+
     <div class="loading-over2" style="display: block;">
     <div class="popup">
         <p id="close2"></p>
