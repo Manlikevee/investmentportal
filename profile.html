@@ -222,7 +222,7 @@ let filterdata =profile.filter(profile=>userid.toLocaleLowerCase().includes (sea
 )
 let mydiv = ''
 filtereddata.forEach(fprofile =>{
-mydiv+= <div> ${fprofile.name}  </div>})
+mydiv+= `<div> ${fprofile.name}  </div>`})
 
 demoDiv.innerHTML = mydiv
 }

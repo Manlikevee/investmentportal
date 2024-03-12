@@ -201,7 +201,7 @@
 
 
       function userinvestments(){
-userid = localStorage.getItem('activeuserid')
+userid = localStorage.getItem('activeuserid') //storage for key from local storage
 
         let userinvestments = []
         const alluserinvestments = localStorage.getItem('Investment details')
@@ -213,7 +213,7 @@ if(alluserinvestments){
 }
 
         let filtereddata = userinvestments.filter(
-          details => details.userid == userid
+          details => details.userid == userid //filtering for where the user id in the investment details array is equal to the user id stored in local storage
         )
 
 
