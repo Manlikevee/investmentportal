@@ -361,23 +361,14 @@ myprofilearray =  localStorage.getItem('profiles');
      if (myprofilearray) {
         Ppofile = JSON.parse(myprofilearray);
      } 
-
-
-
-        let myuserarray=''
-             let users = [
-     
-     ]
-     
-     
-      myuserarray =  localStorage.getItem('User details');
+       let myuserarray=''
+             let users = [ ]
+        myuserarray =  localStorage.getItem('User details');
      
      if (myuserarray) {
          users = JSON.parse(myuserarray);
      } 
-     
-
-function autofill(){
+     function autofill(){
  
         console.log(activeid)
 
