@@ -69,24 +69,22 @@
         </div>
       </div>
 
-      <div class="dashboardrecentinvestments">
-        <div class="dashpreviewcard">
-          <img src="walletimg.png" alt="" />
-          <div class="investmentstatus">
-            <div class="status">Investment successful</div>
-            <div class="date">2-10-2024</div>
-          </div>
-          <div class="previewamount">N50,000.00</div>
-        </div>
+      <div class="dashboardrecentinvestments"   id="alluserinvestments">
+      
+       
+        
 
-        <div class="dashpreviewcard">
+
+
+
+        <!-- <div class="dashpreviewcard">
           <img src="walletimg.png" alt="" />
           <div class="investmentstatus">
             <div class="status">Investment successful</div>
             <div class="date">2-10-2024</div>
           </div>
           <div class="previewamount">N50,000.00</div>
-        </div>
+        </div> -->
       </div>
     </div>
 
@@ -150,8 +148,8 @@
               "Invest in a diversified portfolio of stocks or bonds that track the performance of a specific index. Index funds offer investors exposure to a broad market index, such as the S&P 500 or the FTSE 100, at a relatively low cost. By mirroring the performance of the underlying index, these funds provide investors with diversification benefits and potential for long-term growth. With their passive management approach and low expense ratios, index funds are a popular choice for investors seeking a simple yet effective way to build wealth over time.",
             interestRate: 6.0, // 6.0% interest rate
           },
-          {
-            id: 4433455,
+         {
+             id: 4433455,
             name: "Peer-to-Peer Lending",
             description:
               "Participate in peer-to-peer lending platforms that connect borrowers with individual investors. Peer-to-peer lending, also known as P2P lending, enables investors to lend money directly to borrowers through online platforms, cutting out traditional financial intermediaries such as banks. By diversifying their loan portfolios across multiple borrowers and loan types, investors can earn attractive returns while spreading the risk of default. With features such as automated investing and secondary market trading, peer-to-peer lending offers investors a convenient and transparent way to generate passive income.",
@@ -216,10 +214,27 @@ if(alluserinvestments){
           details => details.userid == userid
         )
 
+        var myinvestments = document.getElementById("alluserinvestments");
+        var storage = userinvestments.map(function (test) {
+          return `<div class="dashpreviewcard">
+          <img src="walletimg.png" alt="" />
+          <div class="investmentstatus">
+            <div class="status">Investment ${test.status}</div>
+            <div class="date">${test.Effective_date}</div>
+          </div>
+          <div class="previewamount">${test.Principal}</div>
+        </div>`;
+        });
+        myinvestments.innerHTML = storage.join("");
+
 
 console.log(filtereddata)
-
       } userinvestments()
+
+
+
+  
+
 
 
     </script>

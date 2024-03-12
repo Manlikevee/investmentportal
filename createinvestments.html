@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Investment Portal</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="loginlinks">
+          <div class="logo">
+            <a href="index.html"
+              ><img src="img/ProduqtEdge Logo.png" alt=""
+            /></a>
+          </div>
+          <div class="links"></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="loginhero">
+      <div class="authpage">
+        <h2 onclick="logarry()">Create Investment</h2>
+        <div class="subtxt">Your Trusted Investment Partners</div>
+
+        <div class="inputblock">
+          <label for="username">Title</label>
+          <input
+            type="text"
+            placeholder="Enter Your Investment Title"
+            id="title"
+          />
+        </div>
+
+        <div class="inputblock">
+          <label for="email">Description</label>
+          <input type="text" placeholder="Enter The Description" id="desc" />
+        </div>
+
+        <div class="inputblock">
+          <label for="password">Interest Rate</label>
+          <input type="number" placeholder="12" id="rate" />
+        </div>
+
+        <button onclick="createinvestment()">Create Investment Plan</button>
+
+        <div class="endblock">
+          Already have an account <a href="login.html">Signin</a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let myuserarray = "";
+
+      let users = [];
+
+      myuserarray = localStorage.getItem("User details");
+
+      if (myuserarray) {
+        users = JSON.parse(myuserarray);
+      }
+
+      function register() {
+        let userid = Math.floor(Math.random() * 64234345172725) + 1 / 542415;
+        const username = document.getElementById("username").value;
+        const mail = document.getElementById("mail").value;
+        const password = document.getElementById("password").value;
+
+        const user = {
+          id: userid,
+          username: username,
+          mail: mail,
+          password: password,
+        };
+
+        const found = users.find(
+          (detail) => detail.username === username || detail.mail === mail
+        );
+
+        if (username && mail && password) {
+          if (found) {
+            alert("Username or email already exists");
+          } else {
+            users.push(user);
+            window.location.href = "login.html";
+          }
+          const usersString = JSON.stringify(users);
+          localStorage.setItem("User details", usersString);
+        } else {
+          alert("all fields are required");
+        }
+      }
+
+      function logarry() {
+        console.log(users);
+      }
+
+      function createinvestment() {
+        let investments = [];
+
+        investmentarray = localStorage.getItem("createinvestments");
+
+        if (investmentarray) {
+          investments = JSON.parse(investmentarray);
+        }
+
+        let title = document.getElementById("title").value;
+        let description = document.getElementById("desc").value;
+        let interest = document.getElementById("rate").value;
+
+        const newinvestment = {
+          name: title,
+          description: description,
+          interestRate: interest,
+        };
+
+        investments.push(newinvestment);
+        title = "";
+        description = "";
+        interest = "";
+
+        const allinvestments = JSON.stringify(investments);
+        localStorage.setItem("createinvestments", allinvestments);
+
+        console.log(investments);
+      }
+    </script>
+  </body>
+</html>
