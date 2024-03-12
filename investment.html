@@ -19,6 +19,7 @@
             <a href="dashboard.html">Dashboard</a>
             <a href="investment.html" class="activelink">Investment</a>
             <a href="">Support</a>
+            <a href="#" onclick="logout()">Logout</a>
           </div>
 
           <a href="profile.html" class="avatar">
@@ -232,6 +233,13 @@
         divElement.innerHTML = post.join("");
       }
       myarray();
+      function logout(){
+    const activeuserid = localStorage.removeItem('activeuserid')
+    window.location.href= 'login.html'
+
+            } 
+
+            
     </script>
     <script src="script.js"></script>
   </body>

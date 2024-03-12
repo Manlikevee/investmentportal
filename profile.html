@@ -21,6 +21,7 @@
                     <a href="dashboard.html" >Dashboard</a>
                     <a href="investment.html">Investment</a>
                     <a href="">Support</a>
+                    <a href="#" onclick="logout()">Logout</a>
 
                 </div>
 
@@ -227,6 +228,12 @@ mydiv+= `<div> ${fprofile.name}  </div>`})
 demoDiv.innerHTML = mydiv
 }
     }getarray()
+
+    function logout(){
+    const activeuserid = localStorage.removeItem('activeuserid')
+    window.location.href= 'login.html'
+
+            }
 </script>
 </body>
 </html>

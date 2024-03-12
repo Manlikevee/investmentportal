@@ -42,12 +42,13 @@
           <div class="bxtitle">Total Investment Amount</div>
           <div class="bxvalue">
             <div class="currency">₦</div>
-            <div class="totalmoney">100,000,000</div>
+            <div class="totalmoney"><span id="total"></span></div>
           </div>
         </div>
         <div class="investmentnumber">
           <div class="bxtitle">Total Number of Investment</div>
-          <div class="bxvalue">10</div>
+          <div class="bxvalue" ><span id="length">
+          </span></div>
         </div>
         <div class="addinvestment" onclick="showinvestmentslists()">
           <div class="bxicon">+</div>
@@ -230,6 +231,66 @@ if(alluserinvestments){
 
 console.log(filtereddata)
       } userinvestments()
+
+
+
+      function length(){
+
+        let userinvestments = [];
+        const alluserinvestments = localStorage.getItem('Investment details')
+
+
+if(alluserinvestments){
+
+    userinvestments =  JSON.parse(alluserinvestments) 
+}
+        const lengths = userinvestments.length
+        console.log(lengths)
+        document.getElementById('length').innerHTML = lengths;
+
+  
+      }length()
+
+
+      function total(){
+        let userinvestments = [];
+        const alluserinvestments = localStorage.getItem('Investment details')
+
+
+if(alluserinvestments){
+
+    userinvestments =  JSON.parse(alluserinvestments) 
+}
+let totalamount = 0
+
+     
+        let filtereddata = userinvestments.filter(
+          details => details.status === 'successful' //filtering for where the user id in the investment details array is equal to the user id stored in local storage
+        )
+        console.log(filtereddata)
+        if (filtereddata) {
+          filtereddata.forEach(inv =>{
+          totalamount += parseInt(inv.Principal) ;
+          document.getElementById('total').innerHTML = totalamount; ; 
+        })
+    
+        console.log(totalamount)
+        }
+      }total()
+
+      function logout(){
+    const activeuserid = localStorage.removeItem('activeuserid')
+    window.location.href= 'login.html'
+
+            } 
+
+      
+
+      
+      
+
+      
+ 
 
 
 
