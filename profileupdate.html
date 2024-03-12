@@ -436,7 +436,7 @@ if (found) {
   }
    
   const find = Ppofile.find(detail => detail.firstname === firstname );
-  Ppofile.push(userprofile)
+  Ppofile.push(userprofile) //user profile is being pushed to the Ppofile array
 
 prfilestringify = JSON.stringify(Ppofile);
   localStorage.setItem('profiles', prfilestringify);
@@ -464,7 +464,7 @@ function showpopup(){
     
     if (myprofilearray) {
         Ppofile = JSON.parse(myprofilearray);
-        status = Ppofile.Profile_updated
+        status = Ppofile.Profile_updated //assigning the value of profile updated to status
      } 
 
 
@@ -496,7 +496,7 @@ function showpopup(){
     </div>
     </div>
     ` 
-    if (status == 'false'){
+    if (status === 'false'){
         document.body.innerHTML += popup;
 
     } else{
